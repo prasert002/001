@@ -313,21 +313,15 @@ hideff:AddToggle({
             while true do wait()
                 if _G.Settings.Hidename then
                 pcall(function()
-                    spawn(function()
                         game.Players.LocalPlayer.Character.Head.PlayerHealthBarGui:Destroy()
                                 game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
-                              end)
-                              spawn(function()
                                 game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function(a)
                                   va = a:WaitForChild("Humanoid")
+                                  
+                    end)
                                 end)
-                                end)
-                                      game:GetService("RunService").Heartbeat:Connect(function()
-                                  game.Players.LocalPlayer.Character.Head.PlayerHealthBarGui:Destroy()
-                                  game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
-                                end)
-        end)
-            end
+                end
+        break
         end
          end)
 end
@@ -352,15 +346,14 @@ upcardff:AddToggle({
         for fh, v in pairs(game.Players.LocalPlayer.PlayerGui.MainGui.CenterUIFrame.Inventory.Frame.CardInventoryFrame.CardInventoryScrollingFrame:GetChildren()) do
                 if v.Name ~= "UIGridLayout" and "CardInventorySlot" then
                     for fo, fp in pairs(getconnections(v.CardClick.MouseButton1Down)) do
-                if tonumber(upgradelevelcard) < 25 then
                     fp:Fire()
-                    if game:GetService("Players").LocalPlayer.PlayerGui.MainGui.CenterUIFrame.Inventory.Frame.InvOverlayOuterFrame.CardInventoryOverlay.OverlayUnequipButton.Label.Text == "UNEQUIP" then
-
-                        game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer("UpgradeCard",v.Name)
+                        if game:GetService("Players").LocalPlayer.PlayerGui.MainGui.CenterUIFrame.Inventory.Frame.InvOverlayOuterFrame.CardInventoryOverlay.OverlayUnequipButton.Label.Text == "UNEQUIP" then
+                            game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer("UpgradeCard",v.Name)
+                        end
+                    
                     end
                 end
-                end
-end
+
     end
         end)
             end
