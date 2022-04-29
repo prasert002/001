@@ -63,10 +63,12 @@ end
         MapName =       "Titan Dimension";
         MapRaid =       "Titan Raid";
         SelectEgg =     "";
+        Webhook =        "";
         Difficulty =    "Easy";
         Hardcore =      false;
         opengacha =     false;
         FriendsOnly =   false;
+        sentwebhook =   false;
         AutoFarm =      false;
         Autospeedraid = false;
         AutoRaid =      false;
@@ -240,6 +242,7 @@ end
     local upcardff = windows:AddFolder("อัพเกรดการ์ด")
     local hideff = windows:AddFolder("ลบชื่อ")
     local eggff = windows:AddFolder("Gacha")
+    local webhookff = windows:AddFolder("webhook")
 
 
 
@@ -355,6 +358,72 @@ upcardff:AddToggle({
                 end
 
     end
+        end)
+            end
+        end
+         end)
+end
+})
+webhookff:AddBox({
+    text = "webhook Url",
+  value = _G.Settings.Webhook,
+  callback = function(a)
+    _G.Settings.Webhook = a
+    saveSettings() 
+end
+})
+
+webhookff:AddToggle({
+    text = "ส่งข้อมูลทั้งหมด", 
+    state = _G.Settings.sentwebhook,
+    callback = function(a) 
+        _G.Settings.sentwebhook = a
+        saveSettings()
+
+
+        spawn(function()
+            while true do wait()
+                if _G.Settings.Webhook then
+                pcall(function()
+
+
+                    local Name = tostring(game:GetService("Players").LocalPlayer.Name).."StatDisplay"
+                    local Names = game:GetService("Players").LocalPlayer.Name
+
+                    local Level = game.Players.LocalPlayer.leaderstats.Level.Value
+                    local Card = game.ReplicatedStorage[Name].CardsOwned.Value
+                    local Ticket = game.ReplicatedStorage[Name].BossRushFreeEntry.Value
+                    local Clearbossrush = game.ReplicatedStorage[Name].BossRushClears.Value
+                    local Expolit = game.ReplicatedStorage[Name].ExploitsDetected.Value
+                    local Enimies = game.ReplicatedStorage[Name].EnemiesDefeatedRound.Value
+
+                    local request
+                    if syn then
+                        request = syn.request
+                    elseif IsElectron then
+                        request = http_request
+                    else
+                        request = request
+                    end
+                    local response = request({
+                        Url = _G.Settings.Webhook,
+                        Method = "POST",
+                        Headers = {
+                            ["Content-Type"] = "application/json"
+                        },
+                        Body = game:GetService("HttpService"):JSONEncode({
+                            embeds = {{
+                                ["title"] = "Anime Dimension", 
+                                ["description"] = "ชื่อตัวละคร : "..tostring(Names).."\nเลเวล : "..tostring(Level).."\nการ์ดที่มีทั้งหมด : "..tostring(Card).."\nตั๋วบอสรัช : "..tostring(Ticket).."\nเครียร์บอสรัช : "..tostring(Clearbossrush).."\nโดนขึ้นอจ้งเตือนว่าโปร : "..tostring(Expolit).."\nตีม่อนไปทั้งหมด : "..tostring(Enimies),
+                                ["color"] = tonumber(0x000000),
+                                ["thumbnail"] = {
+                                    ["url"] = "https://i.pinimg.com/564x/66/2d/4a/662d4a35c175ee86c412f5617ec95498.jpg"
+                                }
+
+                            }}
+                        })
+                    })
+                    wait(30)
         end)
             end
         end
