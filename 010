@@ -83,8 +83,8 @@ end
         Autoafkandraid = false;
         AutoRetry =     false;
         AutoSkill =     false;
-        Distance =      0;
-        Speed =         69;
+        Distance =      2;
+        Speed =         100;
         
     }
 
@@ -1519,9 +1519,9 @@ spawn(function()
         pcall(function()
             for i,v in pairs(workspace.Folders.Monsters:GetChildren()) do
                 if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).magnitude >= 20 then
-                    game:GetService("Workspace").Folders.Players[tostring(Name)].Humanoid.WalkSpeed = 150
+                    game:GetService("Workspace").Folders.Players[tostring(Name)].Humanoid.WalkSpeed = 200
                 else
-                    game:GetService("Workspace").Folders.Players[tostring(Name)].Humanoid.WalkSpeed = 150
+                    game:GetService("Workspace").Folders.Players[tostring(Name)].Humanoid.WalkSpeed = 200
                 end
                             end
                         end)
