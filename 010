@@ -241,8 +241,8 @@ end
     local cardff = windows:AddFolder("ขายการ์ด")
     local upcardff = windows:AddFolder("อัพเกรดการ์ด")
     local hideff = windows:AddFolder("ลบชื่อ")
-    local eggff = windows:AddFolder("Gacha")
-    local webhookff = windows:AddFolder("webhook")
+    local eggff = windows:AddFolder("สุ่มไข่อัตโนมัติ")
+    local webhookff = windows:AddFolder("ระบบแจ้งเตือน")
 
 
 
@@ -305,7 +305,7 @@ end)
 
 
 hideff:AddToggle({
-    text = "ลบชื่อ", 
+    text = "ลบแถบชื่อตัวละคร", 
     state = _G.Settings.Hidename,
     callback = function(a) 
         _G.Settings.Hidename = a
@@ -333,7 +333,7 @@ end
           
             
 upcardff:AddToggle({
-    text = "เปิด upgradecard", 
+    text = "เปิด Autoอัพเกรดการ์ด", 
     state = _G.Settings.AutoUpgradecard,
     callback = function(a) 
         _G.Settings.AutoUpgradecard = a
@@ -365,7 +365,7 @@ upcardff:AddToggle({
 end
 })
 webhookff:AddBox({
-    text = "webhook Url",
+    text = "ลิ้งเว็บHook Url",
   value = _G.Settings.Webhook,
   callback = function(a)
     _G.Settings.Webhook = a
@@ -398,6 +398,37 @@ webhookff:AddToggle({
                     local Enimies = game.ReplicatedStorage[Name].EnemiesDefeatedRound.Value
                     local RaidClear = game.ReplicatedStorage[Name].RaidClears.Value
                     local DimensionClear = game.ReplicatedStorage[Name].StageClear.Value
+                    local Damage = game.ReplicatedStorage[Name].Damage.Value
+                    local Characters = game.ReplicatedStorage[Name].CharactersOwned.Value
+                    local CollectionRank = game.ReplicatedStorage[Name].CollectionRankValue.Value
+                    local CriticalChance = game.ReplicatedStorage[Name].Sub_CriticalChance.Value
+                    local CriticalDamage = game.ReplicatedStorage[Name].Sub_CriticalDamage.Value
+                    local AttackPercent = game.ReplicatedStorage[Name].Sub_AttackPercent.Value
+                    local HealthPercent = game.ReplicatedStorage[Name].Sub_HealthPercent.Value
+                    local EXPGain = game.ReplicatedStorage[Name].Sub_EXPGain.Value
+                    local HealthRegeneration = game.ReplicatedStorage[Name].Sub_HealthRegeneration.Value
+                    local GoldGain = game.ReplicatedStorage[Name].Sub_GoldGain.Value
+                    local BossLifesteal = game.ReplicatedStorage[Name].Sub_BossLifesteal.Value
+                    local MobLifesteal = game.ReplicatedStorage[Name].Sub_MobLifesteal.Value
+                    local MobAttackPercent = game.ReplicatedStorage[Name].Sub_MobAttackPercent.Value
+                    local BossAttackPercent = game.ReplicatedStorage[Name].Sub_BossAttackPercent.Value
+                    local CooldownReduction = game.ReplicatedStorage[Name].Sub_CooldownReduction.Value
+                    local DamageReduction = game.ReplicatedStorage[Name].Sub_DamageReduction.Value
+                    local AssistCooldownReduction = game.ReplicatedStorage[Name].Sub_AssistCooldownReduction.Value
+                    local DashCooldown = game.ReplicatedStorage[Name].Sub_DashCooldown.Value
+                    local TengokuRaid = game.ReplicatedStorage[Name].TengokuRaidBeat.Value
+                    local HiritoRaid = game.ReplicatedStorage[Name].HiritoRaidBeat.Value
+                    local HalloweenRaid = game.ReplicatedStorage[Name].HalloweenRaidBeat.Value
+                    local TitanRaid = game.ReplicatedStorage[Name].TitanRaidBeat.Value
+                    local ChristmasRaid = game.ReplicatedStorage[Name].ChristmasRaidBeat.Value
+                    local NewYearRaid = game.ReplicatedStorage[Name].NewYearRaidBeat.Value
+                    local DemonLordRaid = game.ReplicatedStorage[Name].DemonLordRaidBeat.Value
+                    local CombatTitanRaid = game.ReplicatedStorage[Name].CombatTitanRaidBeat.Value
+                    local GojoRaid = game.ReplicatedStorage[Name].GojoRaidBeat.Value
+                    local TimePlayed = game.ReplicatedStorage[Name].TimePlayed.Value
+                    local DaysLoggedIn = game.ReplicatedStorage[Name].DaysLoggedIn.Value
+                    local MinutesPlayed = game.ReplicatedStorage[Name].MinutesPlayed.Value
+                    local MinutesPlayedToday = game.ReplicatedStorage[Name].MinutesPlayedToday.Value
 
                     local request
                     if syn then
@@ -416,19 +447,45 @@ webhookff:AddToggle({
                         Body = game:GetService("HttpService"):JSONEncode({
                             embeds = {{
                                 ["title"] = "Anime Dimension", 
-                                ["description"] = "ชื่อตัวละคร : "..tostring(Names).."\nเลเวลตัวละคร : "..tostring(Level).."\nการ์ดที่มีทั้งหมด : "..tostring(Card).."\nเคียร์Raid : "..tostring(RaidClear).." \nเคียร์ด่านไปทั้งหมดแล้ว : "..tostring(DimensionClear).." \nตั๋วBossRusHที่มี : "..tostring(Ticket).."\nเครียร์บอสรัชไปแล้ว : "..tostring(Clearbossrush).."\nโดนขึ้นแจ้งเตือนว่าโปร : "..tostring(Expolit).."\nฆ่าม่อนไปทั้งหมด : "..tostring(Enimies),
-                                
-                                
+                                ["description"] = "ชื่อตัวละคร : "..tostring(Names).."\nเลเวลตัวละคร : "..tostring(Level).."\nตัวละครที่มีทั้งหมด : "..tostring(Characters).."\nการ์ดที่มีทั้งหมด : "..tostring(Card).."\nDamage : "..tostring(Damage).."\nเคียร์Raid : "..tostring(RaidClear).." \nเคียร์ด่านไปทั้งหมดแล้ว : "..tostring(DimensionClear).." \nตั๋วBossRusHที่มี : "..tostring(Ticket).."\nเครียร์บอสรัชไปแล้ว : "..tostring(Clearbossrush).."\nโดนขึ้นแจ้งเตือนว่าโปร : "..tostring(Expolit).."\nฆ่าม่อนไปทั้งหมด : "..tostring(Enimies).."\nแต้มสถิติโบนัสทั้งหมด : "..tostring(CollectionRank)
+                                .."\nโอกาศคริติคอล : "..tostring(CriticalChance)
+                                .."\nคริติคอลดาเมท : "..tostring(CriticalDamage)
+                                .."\nเปอเซ็นดาเมท : "..tostring(AttackPercent)
+                                .."\nเปอเซ็นเลือด : "..tostring(HealthPercent)
+                                .."\nค่าExp : "..tostring(EXPGain)
+                                .."\nอัตตราฟื้นฟูเลือด : "..tostring(HealthRegeneration)
+                                .."\nอัตตราดรอปเงิน : "..tostring(GoldGain)
+                                .."\nความเสียหายต่อเลือดบอส : "..tostring(BossLifesteal)
+                                .."\nความเสียหายต่อเลือดม่อนเตอร์ : "..tostring(MobLifesteal)
+                                .."\nเปอเซ็นดาเมทโจมตีม่อนเตอร์ : "..tostring(MobAttackPercent)
+                                .."\nความเสียหายโจมตีบอส : "..tostring(BossAttackPercent)
+                                .."\nลดคลูดาวสกิล : "..tostring(CooldownReduction)
+                                .."\nลดความแรงตอนโดนโจมตีลง : "..tostring(DamageReduction)
+                                .."\nลดคลูดาวตัวละครซับ : "..tostring(AssistCooldownReduction)
+                                .."\nเวลาพุ้งลดลง : "..tostring(DashCooldown)
+                                .."\nลง Tengoku Raidไปแล้ว : "..tostring(TengokuRaid)
+                                .."\nลง Hirito Raidไปแล้ว  : "..tostring(HiritoRaid)
+                                .."\nลง Halloween Raidไปแล้ว  : "..tostring(HalloweenRaid)
+                                .."\nลง Titan Raidไปแล้ว  : "..tostring(TitanRaid)
+                                .."\nลง Christmas Raidไปแล้ว  : "..tostring(ChristmasRaid)
+                                .."\nลง NewYear Raidไปแล้ว  : "..tostring(NewYearRaid)
+                                .."\nลง Demon Lord Raidไปแล้ว  : "..tostring(DemonLordRaid)
+                                .."\nลง Combat Titan Raidไปแล้ว  : "..tostring(CombatTitanRaid)
+                                .."\nลง Infinity Nojo Raidไปแล้ว  : "..tostring(GojoRaid)
+                                .."\nเวลาของตัวละครทั้งหมด  : "..tostring(TimePlayed)
+                                .."\nจำนวนวันที่ล้อคอิน  : "..tostring(DaysLoggedIn)
+                                .."\nจำนวนนาทีที่เข้าเล่น  : "..tostring(MinutesPlayed)
+                                .."\nวันนี้เล่นไปกี่นาทีแล้ว  : "..tostring(MinutesPlayedToday),
                                 
                                 ["color"] = tonumber(0x000000),
                                 ["thumbnail"] = {
-                                    ["url"] = "https://i.pinimg.com/564x/66/2d/4a/662d4a35c175ee86c412f5617ec95498.jpg"
+                                    ["url"] = "https://media.discordapp.net/attachments/969470191673151508/969472514302546001/55555555555555.png"
                                 }
 
                             }}
                         })
                     })
-                    wait(30)
+                    wait(300)
         end)
             end
         end
@@ -438,7 +495,7 @@ end
 
 
 eggff:AddList({
-    text = "เลือกด่าน gacha", 
+    text = "เลือกไข่ที่จะเปิด", 
     value = _G.Settings.SelectEgg,
     values = Gacha, 
     callback = function(a) 
@@ -449,7 +506,7 @@ eggff:AddList({
 
 
 eggff:AddToggle({
-    text = "เปิด gacha", 
+    text = "เปิด ไข่เองอัตโนมัติ", 
     state = _G.Settings.opengacha,
     callback = function(a) 
         _G.Settings.opengacha = a
@@ -576,7 +633,7 @@ end
     
     
     FarmingFolder:AddToggle({
-        text = "เปิด auto afk + auto raid", 
+        text = "เปิด Auto AFK + Auto Raid", 
         state = _G.Settings.Autoafkandraid,
         callback = function(a) 
             _G.Settings.Autoafkandraid = a
@@ -757,7 +814,7 @@ end
   
 
     FarmingFolder:AddToggle({
-        text = "เปิด auto raid", 
+        text = "เปิด Auto Raid + FarmLevel", 
         state = _G.Settings.AutoRaid,
         callback = function(a) 
             _G.Settings.AutoRaid = a
@@ -785,7 +842,7 @@ end
 
 
     FarmingFolder:AddToggle({
-        text = "เปิด speed raid", 
+        text = "เปิด Auto Speed Raid", 
         state = _G.Settings.Autospeedraid,
         callback = function(a) 
             _G.Settings.Autospeedraid = a
@@ -817,7 +874,7 @@ end
 
 
     FarmingFolder:AddList({
-        text = "เลือกด่าน raid only", 
+        text = "เลือกด่าน Raid Only", 
         value = _G.Settings.MapRaid,
         values = MapListRaid, 
         callback = function(a) 
@@ -827,7 +884,7 @@ end
     })  
 
     cardff:AddToggle({
-        text = "ขายการ์ด common", 
+        text = "ขายการ์ด Common", 
         state = _G.Settings.AutoSellCardCommon,
         callback = function(a) 
             _G.Settings.AutoSellCardCommon = a
@@ -857,7 +914,7 @@ end
     })
 
     cardff:AddToggle({
-        text = "ขายการ์ด uncommon", 
+        text = "ขายการ์ด UnCommon", 
         state = _G.Settings.AutoSellCardUncommon,
         callback = function(a) 
             _G.Settings.AutoSellCardUncommon = a
@@ -887,7 +944,7 @@ end
     })
 
     cardff:AddToggle({
-        text = "ขายการ์ด rare", 
+        text = "ขายการ์ด Rare", 
         state = _G.Settings.AutoSellCardRare,
         callback = function(a) 
             _G.Settings.AutoSellCardRare = a
@@ -979,7 +1036,7 @@ end
 
 
     ProFolder:AddButton({
-        text = "redeem code", 
+        text = "ReDeem All Code", 
             callback = function()
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/prasert002/001/main/006"))()
             saveSettings()
@@ -1002,13 +1059,6 @@ end
         text = "ปลดล้อคเกมส์พาส", 
             callback = function()
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/prasert01/001/main/Gpall"))()
-            saveSettings()
-        end
-    })
-    ProFolder:AddButton({
-        text = "ซ่อนชื่อตัวละคร", 
-            callback = function()
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/prasert01/001/main/NameH"))()
             saveSettings()
         end
     })
@@ -1519,9 +1569,9 @@ spawn(function()
         pcall(function()
             for i,v in pairs(workspace.Folders.Monsters:GetChildren()) do
                 if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).magnitude >= 20 then
-                    game:GetService("Workspace").Folders.Players[tostring(Name)].Humanoid.WalkSpeed = 200
+                    game:GetService("Workspace").Folders.Players[tostring(Name)].Humanoid.WalkSpeed = 70
                 else
-                    game:GetService("Workspace").Folders.Players[tostring(Name)].Humanoid.WalkSpeed = 200
+                    game:GetService("Workspace").Folders.Players[tostring(Name)].Humanoid.WalkSpeed = 30
                 end
                             end
                         end)
