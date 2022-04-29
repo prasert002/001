@@ -396,6 +396,7 @@ webhookff:AddToggle({
                     local Clearbossrush = game.ReplicatedStorage[Name].BossRushClears.Value
                     local Expolit = game.ReplicatedStorage[Name].ExploitsDetected.Value
                     local Enimies = game.ReplicatedStorage[Name].EnemiesDefeatedRound.Value
+                    local RaidClear = game.ReplicatedStorage[Name].RaidClears.Value
 
                     local request
                     if syn then
@@ -414,7 +415,10 @@ webhookff:AddToggle({
                         Body = game:GetService("HttpService"):JSONEncode({
                             embeds = {{
                                 ["title"] = "Anime Dimension", 
-                                ["description"] = "ชื่อตัวละคร : "..tostring(Names).."\nเลเวล : "..tostring(Level).."\nการ์ดที่มีทั้งหมด : "..tostring(Card).."\nตั๋วบอสรัช : "..tostring(Ticket).."\nเครียร์บอสรัช : "..tostring(Clearbossrush).."\nโดนขึ้นอจ้งเตือนว่าโปร : "..tostring(Expolit).."\nตีม่อนไปทั้งหมด : "..tostring(Enimies),
+                                ["description"] = "ชื่อตัวละคร : "..tostring(Names).."\nเลเวล : "..tostring(Level).."\nการ์ดที่มีทั้งหมด : "..tostring(Card).."\nเคียร์Raid : "..tostring(RaidClear).."\nตั๋วบอสรัช : "..tostring(Ticket).."\nเครียร์บอสรัช : "..tostring(Clearbossrush).."\nโดนขึ้นแจ้งเตือนว่าโปร : "..tostring(Expolit).."\nฆ่าม่อนไปทั้งหมด : "..tostring(Enimies),
+                                
+                                
+                                
                                 ["color"] = tonumber(0x000000),
                                 ["thumbnail"] = {
                                     ["url"] = "https://i.pinimg.com/564x/66/2d/4a/662d4a35c175ee86c412f5617ec95498.jpg"
