@@ -397,6 +397,7 @@ webhookff:AddToggle({
                     local Expolit = game.ReplicatedStorage[Name].ExploitsDetected.Value
                     local Enimies = game.ReplicatedStorage[Name].EnemiesDefeatedRound.Value
                     local RaidClear = game.ReplicatedStorage[Name].RaidClears.Value
+                    local DimensionClear = game.ReplicatedStorage[Name].StageClear.Value
 
                     local request
                     if syn then
@@ -415,7 +416,7 @@ webhookff:AddToggle({
                         Body = game:GetService("HttpService"):JSONEncode({
                             embeds = {{
                                 ["title"] = "Anime Dimension", 
-                                ["description"] = "ชื่อตัวละคร : "..tostring(Names).."\nเลเวล : "..tostring(Level).."\nการ์ดที่มีทั้งหมด : "..tostring(Card).."\nเคียร์Raid : "..tostring(RaidClear).."\nตั๋วบอสรัช : "..tostring(Ticket).."\nเครียร์บอสรัช : "..tostring(Clearbossrush).."\nโดนขึ้นแจ้งเตือนว่าโปร : "..tostring(Expolit).."\nฆ่าม่อนไปทั้งหมด : "..tostring(Enimies),
+                                ["description"] = "ชื่อตัวละคร : "..tostring(Names).."\nเลเวลตัวละคร : "..tostring(Level).."\nการ์ดที่มีทั้งหมด : "..tostring(Card).."\nเคียร์Raid : "..tostring(RaidClear).." \nเคียร์ด่านไปทั้งหมดแล้ว : "..tostring(DimensionClear).." \nตั๋วBossRusHที่มี : "..tostring(Ticket).."\nเครียร์บอสรัชไปแล้ว : "..tostring(Clearbossrush).."\nโดนขึ้นแจ้งเตือนว่าโปร : "..tostring(Expolit).."\nฆ่าม่อนไปทั้งหมด : "..tostring(Enimies),
                                 
                                 
                                 
