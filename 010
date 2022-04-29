@@ -1521,7 +1521,7 @@ spawn(function()
                 if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).magnitude >= 20 then
                     game:GetService("Workspace").Folders.Players[tostring(Name)].Humanoid.WalkSpeed = 70
                 else
-                    game:GetService("Workspace").Folders.Players[tostring(Name)].Humanoid.WalkSpeed = 20
+                    game:GetService("Workspace").Folders.Players[tostring(Name)].Humanoid.WalkSpeed = 35
                 end
                             end
                         end)
