@@ -63,7 +63,16 @@ end
         MapName =       "Titan Dimension";
         MapRaid =       "Titan Raid";
         SelectEgg =     "";
-        Webhook =        "";
+        SelectMainC =   false;
+        autoclaimrewardraid =   false;
+        DailyGem =   false;
+        DailyQuest =   false;
+        SelectAs1 =   false;
+        SelectAs2 =   false;
+        SelectAs11 =   false;
+        SelectAs22 =   false;
+        equipselectmain =   false;
+        Webhook =       "";
         Difficulty =    "Easy";
         Hardcore =      false;
         opengacha =     false;
@@ -151,6 +160,189 @@ end
 		"Hirito Raid";
 		"Titan Raid"
     }
+    
+    local selectmaincharecter = {
+        "Naruto";
+        "Luffy";
+        "Ichigo";
+        "Goku";
+        "Deku";
+        "Sakura";
+        "Natsu";
+        "Killua";
+        "Itadori";
+        "Asta";
+        "Akaza";
+        "Sasuke";
+        "Gray";
+        "Tanjiro";
+        "Shinra";
+        "Rukia";
+        "All Might";
+        "Zoro";
+        "AsunaCharacter";
+        "Sukuna";
+        "Emiya Archer";
+        "Zenitsu";
+        "Winter Spirit Emilia";
+        "TogaCharacter (Halloween)";
+        "Todoroki";
+        "Rimuru";
+        "Priestess";
+        "Nezuko (New Year)";
+        "Naofumi";
+        "MilimCharacter (Valentine)";
+        "Megumin";
+        "Lancer";
+        "KanekiCharacter";
+        "Gojo";
+        "Genos";
+        "Eugeo";
+        "Bakugo";
+        "Artoria";
+        "RengokuCharacter";
+        "Megumin (Halloween)";
+        "KiritoCharacter";
+        "Yoriichi";
+        "Ryuko";
+        "RimuruDemonLord";
+        "Naruto Six Paths";
+        "Levi";
+        "Katakuri";
+        "Ice Queen Esdeath";
+        "Kokushibo";
+        "Gilgamesh";
+        "Broly";
+        "Attack Titan";
+        "Alice";
+        "Shadow Yoriichi";
+        "Shadow Esdeath";
+        "Saber Alter Character";
+        "Infinity Gojo";
+        "Sung Jin Woo"        
+    }
+
+    local selectassis1 = {
+        "Naruto";
+        "Luffy";
+        "Ichigo";
+        "Goku";
+        "Deku";
+        "Sakura";
+        "Natsu";
+        "Killua";
+        "Itadori";
+        "Asta";
+        "Akaza";
+        "Sasuke";
+        "Gray";
+        "Tanjiro";
+        "Shinra";
+        "Rukia";
+        "All Might";
+        "Zoro";
+        "AsunaCharacter";
+        "Sukuna";
+        "Emiya Archer";
+        "Zenitsu";
+        "Winter Spirit Emilia";
+        "TogaCharacter (Halloween)";
+        "Todoroki";
+        "Rimuru";
+        "Priestess";
+        "Nezuko (New Year)";
+        "Naofumi";
+        "MilimCharacter (Valentine)";
+        "Megumin";
+        "Lancer";
+        "KanekiCharacter";
+        "Gojo";
+        "Genos";
+        "Eugeo";
+        "Bakugo";
+        "Artoria";
+        "RengokuCharacter";
+        "Megumin (Halloween)";
+        "KiritoCharacter";
+        "Yoriichi";
+        "Ryuko";
+        "RimuruDemonLord";
+        "Naruto Six Paths";
+        "Levi";
+        "Katakuri";
+        "Ice Queen Esdeath";
+        "Kokushibo";
+        "Gilgamesh";
+        "Broly";
+        "Attack Titan";
+        "Alice";
+        "Shadow Yoriichi";
+        "Shadow Esdeath";
+        "Saber Alter Character";
+        "Infinity Gojo";
+        "Sung Jin Woo"        
+    }
+
+    local selectassis2 = {
+        "Naruto";
+        "Luffy";
+        "Ichigo";
+        "Goku";
+        "Deku";
+        "Sakura";
+        "Natsu";
+        "Killua";
+        "Itadori";
+        "Asta";
+        "Akaza";
+        "Sasuke";
+        "Gray";
+        "Tanjiro";
+        "Shinra";
+        "Rukia";
+        "All Might";
+        "Zoro";
+        "AsunaCharacter";
+        "Sukuna";
+        "Emiya Archer";
+        "Zenitsu";
+        "Winter Spirit Emilia";
+        "TogaCharacter (Halloween)";
+        "Todoroki";
+        "Rimuru";
+        "Priestess";
+        "Nezuko (New Year)";
+        "Naofumi";
+        "MilimCharacter (Valentine)";
+        "Megumin";
+        "Lancer";
+        "KanekiCharacter";
+        "Gojo";
+        "Genos";
+        "Eugeo";
+        "Bakugo";
+        "Artoria";
+        "RengokuCharacter";
+        "Megumin (Halloween)";
+        "KiritoCharacter";
+        "Yoriichi";
+        "Ryuko";
+        "RimuruDemonLord";
+        "Naruto Six Paths";
+        "Levi";
+        "Katakuri";
+        "Ice Queen Esdeath";
+        "Kokushibo";
+        "Gilgamesh";
+        "Broly";
+        "Attack Titan";
+        "Alice";
+        "Shadow Yoriichi";
+        "Shadow Esdeath";
+        "Saber Alter Character";
+        "Infinity Gojo";
+        "Sung Jin Woo"        
+    }
 
     local MapDifficulty = {
         "Infinite";
@@ -164,7 +356,6 @@ end
         "Infinity Nojo Capsule",
         "Attack Titan Capsule"
     }
-
 
     local keys = {
         "One";
@@ -231,6 +422,7 @@ end
     local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/uzu01/lua/main/ui/uwuware.lua"))()
     local window = library:CreateWindow("เกมส์ AnimeD-13/4/65")
     local windows = library:CreateWindow("Tab 2")
+    local windowss = library:CreateWindow("SPEEDRAID")
 
     local FarmingFolder = window:AddFolder("ฟาร์ม")
     local SettingFolder = window:AddFolder("คั้งค่า")
@@ -244,6 +436,10 @@ end
     local eggff = windows:AddFolder("สุ่มไข่อัตโนมัติ")
     local webhookff = windows:AddFolder("ระบบแจ้งเตือน")
 
+    local selectmain = windowss:AddFolder("ไส่ตัวละครอัตโนมัติ")
+    local autochamraid = windowss:AddFolder("รับรางวัลรีดอัตโนมัติ")
+    local DailyGems = windowss:AddFolder("รับรางล้อคอินรายวัน")
+    local DailyQuests = windowss:AddFolder("รับรางเควสอัตโนมัติ")
 
 
 
@@ -526,6 +722,170 @@ eggff:AddToggle({
 end
 })
 
+selectmain:AddList({
+    text = "เลือกไส่ตัวละครหลัก", 
+    value = _G.Settings.SelectMainC,
+    values = selectmaincharecter, 
+    callback = function(a) 
+        _G.Settings.SelectMainC = a
+        saveSettings() 
+    end
+})
+
+
+selectmain:AddToggle({
+    text = "เปิดไช้งานตัวละครหลัก", 
+    state = _G.Settings.equipselectmain,
+    callback = function(a) 
+        _G.Settings.equipselectmain = a
+        saveSettings()
+
+
+        task.spawn(function()
+            while true do
+              if not task.wait(3) or 3 then
+                if _G.Settings.equipselectmain then
+                pcall(function()
+                    game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer("EquipCharacter",tostring(_G.Settings.SelectMainC))
+
+                        end)
+                     end
+                  end
+            end
+         end)
+end
+})
+
+
+selectmain:AddList({
+    text = "เลือกไส่ตัวละครซับ E ", 
+    value = _G.Settings.SelectAs1,
+    values = selectassis1, 
+    callback = function(a) 
+        _G.Settings.SelectAs1 = a
+        saveSettings() 
+    end
+})
+
+
+selectmain:AddToggle({
+    text = "เปิดไช้งานตัวละครซับ E", 
+    state = _G.Settings.SelectAs11,
+    callback = function(a) 
+        _G.Settings.SelectAs11 = a
+        saveSettings()
+
+
+        task.spawn(function()
+            while true do
+              if not task.wait(3) or 3 then
+                if _G.Settings.SelectAs11 then
+                pcall(function()
+                    game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer("EquipCharacterAssist", _G.Settings.SelectAs1, 1)
+
+                        end)
+                     end
+                  end
+            end
+         end)
+end
+})
+
+selectmain:AddList({
+    text = "เลือกไส่ตัวละครซับ R ", 
+    value = _G.Settings.SelectAs2,
+    values = selectassis2, 
+    callback = function(a) 
+        _G.Settings.SelectAs2 = a
+        saveSettings() 
+    end
+})
+
+
+selectmain:AddToggle({
+    text = "เปิดไช้งานตัวละครซับ R", 
+    state = _G.Settings.SelectAs22,
+    callback = function(a) 
+        _G.Settings.SelectAs22 = a
+        saveSettings()
+
+
+        task.spawn(function()
+            while true do
+              if not task.wait(3) or 3 then
+                if _G.Settings.SelectAs22 then
+                pcall(function()
+                    game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer("EquipCharacterAssist", _G.Settings.SelectAs2, 2)
+
+                        end)
+                     end
+                  end
+            end
+         end)
+end
+})
+
+autochamraid:AddToggle({
+    text = "SpeedRaid Reward", 
+    state = _G.Settings.autoclaimrewardspeed,
+    callback = function(a) 
+        _G.Settings.autoclaimrewardspeed = a
+        saveSettings()
+        task.spawn(function()
+          while true do
+            if not task.wait(1) or 1 then
+              break
+            end
+            game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer("ClaimWeeklySpeedRaidReward", 1)
+            game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer("ClaimWeeklySpeedRaidReward", 2)
+            game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer("ClaimWeeklySpeedRaidReward", 3)
+            game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer("ClaimWeeklySpeedRaidReward", 4)
+            game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer("ClaimWeeklySpeedRaidReward", 5)
+            game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer("ClaimWeeklySpeedRaidReward", 6)
+            game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer("ClaimWeeklySpeedRaidReward", 7)
+            game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer("ClaimWeeklySpeedRaidReward", 8)
+            game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer("ClaimWeeklySpeedRaidReward", 9)
+            end
+        end)
+    end
+})
+
+DailyGems:AddToggle({
+    text = "Login DailyRiadGem", 
+    state = _G.Settings.DailyGem,
+    callback = function(a) 
+        _G.Settings.DailyGem = a
+        saveSettings()
+        task.spawn(function()
+          while true do
+            if 1 or 1 then
+              break
+            end
+            game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer("GiveFreeDailyGemFromShop")
+          end
+        end)
+      end
+})
+
+DailyQuests:AddToggle({
+    text = "DailyQuest Reward", 
+    state = _G.Settings.DailyQuest,
+    callback = function(a) 
+        _G.Settings.DailyQuests = a
+        saveSettings()
+        task.spawn(function()
+          while task.wait(1) and not 1 do
+            game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer("CompleteDailyQuest", "DailyQuest_Login")
+            game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer("CompleteDailyQuest", "DailyQuest_DungeonClear")
+            game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer("CompleteDailyQuest", "DailyQuest_Enemies")
+            game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer("CompleteDailyQuest", "DailyQuest_TimeChallenge")
+            game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer("CompleteDailyQuest", "DailyQuest_Raid")
+            game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer("CompleteDailyQuest", "DailyQuest_BossRush")
+            game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer("CompleteDailyQuest", "DailyQuest_AllQuestClear")
+          end
+        end)
+      end
+})
 
 FarmingFolder:AddToggle({
     text = "เปิด auto ใส่ best card", 
