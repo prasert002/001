@@ -138,6 +138,7 @@ end
 
     
     local MapList = {
+        "Esper Raid";
         "Infinite Mode";
         "Titan Dimension";
         "Demon Dimension";
@@ -154,6 +155,7 @@ end
     }
 
     local MapListRaid = {
+        "Esper Raid";
         "Combat Titan Raid";
         "Infinity Nojo Raid";
 		"Tengoku Raid";
@@ -352,6 +354,7 @@ end
     }
 
     local Gacha = {
+        "Esper Capsule",   
         "Raid Capsule 1",
         "Infinity Nojo Capsule",
         "Attack Titan Capsule"
