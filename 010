@@ -145,20 +145,21 @@ end)
         "Sword Dimension";
         "Ghoul Dimension";
         "Fate Dimension";
-		"Combat Titan Raid";
+        "Slime Dimension";
+	"Combat Titan Raid";
         "Infinity Nojo Raid";
-		"Tengoku Raid";
-		"Hirito Raid";
-		"Titan Raid"
+	"Tengoku Raid";
+	"Hirito Raid";
+	"Titan Raid"
     }
 
     local MapListRaid = {
         "Esper Raid";
         "Combat Titan Raid";
         "Infinity Nojo Raid";
-		"Tengoku Raid";
-		"Hirito Raid";
-		"Titan Raid"
+	"Tengoku Raid";
+	"Hirito Raid";
+	"Titan Raid"
     }
     
     local selectmaincharecter = {
