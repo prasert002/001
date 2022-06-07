@@ -148,12 +148,14 @@ end)
         "Slime Dimension";
 	"Combat Titan Raid";
         "Infinity Nojo Raid";
+        "Gear 5 Fluffy Raid";
 	"Tengoku Raid";
 	"Hirito Raid";
 	"Titan Raid"
     }
 
     local MapListRaid = {
+        "Gear 5 Fluffy Raid";
         "Esper Raid";
         "Combat Titan Raid";
         "Infinity Nojo Raid";
@@ -353,6 +355,7 @@ end)
     }
 
     local Gacha = {
+        "Gear 5 Fluffy Capsule", 
         "Esper Capsule",   
         "Raid Capsule 1",
         "Infinity Nojo Capsule",
@@ -1906,6 +1909,36 @@ spawn(function()
        end
    end
 end)
+
+spawn(function()
+    while true do wait()
+       if autofarm then
+           pcall(function()
+               for i,v in pairs(game:GetService("Workspace").Folders.Monsters:GetChildren()) do
+                  if v.Name == "Primordial" then wait(15)
+                       game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
+                    end
+               end
+           end)
+       end
+   end
+end)
+
+spawn(function()
+    while true do wait()
+       if autofarm then
+           pcall(function()
+               for i,v in pairs(game:GetService("Workspace").Folders.Monsters:GetChildren()) do
+                  if v.Name == "Ramura" then wait(15)
+                       game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
+                    end
+               end
+           end)
+       end
+   end
+end)
+
+
 
 spawn(function()
     while true do wait()
